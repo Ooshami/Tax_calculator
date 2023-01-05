@@ -1,0 +1,26 @@
+class vat():
+    def __init__(self,pvTTC,PxHT,VAT):
+        self.pvTTC= pvTTC
+        self.PxHT = PxHT
+        self.VAT= VAT
+    def calc_vat(self):
+        return self.PxHT * (1 + self.VAT)
+
+print('Welcome to the tax calculator.')
+loop=True
+while loop == True:
+    without_taxes=input('Enter your price without taxes >> ')
+    rate_vat=input('Enter the VAT rate (ex : 0.2 for 20%) >> ')
+    resultat = vat(None,int(without_taxes),float(rate_vat))
+    print('The amount of your purchase including all taxes is {}' .format(resultat.calc_vat()))
+  
+    calcul=input('Would you like to calculate again ? yes/no ')
+    if calcul == 'yes':
+        loop=True
+    elif calcul=='no':
+        print('Logging out')
+        loop=False
+        exit()
+    else :
+        print('Incorrect input, please try again.')
+        loop=True 
